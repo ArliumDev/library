@@ -1,0 +1,27 @@
+Definimos unas variables a elementos del DOM con los que necesitaremos trabajar
+
+Añadimos un EventListener a newBook para que enseñe la modal al clicar en él
+
+Añadimos un EventListener a addBook que esperará un evento, haciendo referencia al elemento card que se nos abra al pulsar newBook, que contendrá este addBook. Ejecutará la función addBookToLibrary(), cerrará la modal, y prevendrá que se envíe el formulario de forma predeterminada
+
+Añadimos un EventListener a cancel, que esperará un evento igual que addBook. Cerrará la modal sin ejecutar ninguna función y prevendrá que se envíe el formulario
+
+Hacemos un Constructor para Book, que tendrá un author, un title, un pages y un read. Lo asignamos a this para que las instancias lo contengan, y a read le hacemos una evaluación estricta para que devuelva "true" como booleano en caso de hacer coincidencia
+
+Añadimos la función toggleRead() al prototipo de Book que hará de interruptor con el estado de lectura, aprovechándonos del poder de la herencia y referencia.
+
+Definimos un array myLibrary
+
+Definimos qué hace la función addBookToLibrary(), que asignará el retorno de fetchBookData() a bookData, lo mismo con createBookEntry(bookData) y newBook, y llamará a displayBook(newBook);
+
+Definimos qué hace la función fetchBookData(), que asignará el querySelector('form') a una variable form, un constructor de FormData() con form como parámetro a una variable formData, y un objeto a bookData. Luego itera sobre formData.entries() con la desestructuración de array con [key,value], donde key sostiene el nombre del campo del formulario (author, title…) y value será el input del usuario. Luego asignará el querySelector del input yes como seleccionado por el usuario a readStatus, y le pasará a bookData.read el resultado, y retornará el valor de bookData
+
+Definimos qué hace la función createBookEntry(), que tomará un parámetro ya señalado anteriormente, y asignará la creación de una nueva instancia de Book (con los valores del parámetro) a la variable newBook, luego lo añadirá al próximo índice del array myLibrary, y retornará newBook. 
+
+Nota: Los retornos de bookData y newBook son para que las funciones que los usan como parámetros al ser llamados, dispongan del último cambio realizado en ambas
+
+Definimos una función que va a hacer una Card con toda la info necesaria para luego anidarla al div cardContainer y se pueda mostrar en el UI. 
+
+Definimos una función toggleReadStatus() que tomará como parámetros book y card. Llamará a la función toggleRead() del prototipo de Book, y asignará un querySelector del botón read a toggleReadButton. Cambiará el texto de este en función del valor de book.read. Cambiará el texto del elemento anterior a él, en este caso un párrafo, para que se ajuste al cambio realizado por el botón.
+
+Definimos una función removeBook() que tomará los mismos parámetros que la función anterior. Asignará el retorno de buscar el índice en el array myLibrary del book al que le hayamos pulsado el botón. Comprueba si el índice es mayor a -1, siendo que el array sí contiene elementos, y lo va a eliminar del array con el índice albergado en bookIndex. Elimina la card mediante la API element.remove(), e imprime por consola el estado actual de myLibrary.
