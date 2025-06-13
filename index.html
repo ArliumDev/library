@@ -8,7 +8,27 @@
   </head>
   <body>
     <main class="wrapper">
-      <section class="library"></section>
+      <form action="" method="post" class="book-form">
+        <h4>Create a new entry:</h4>
+        <label for="title">Title:</label>
+        <input type="text" id="title" required />
+        <label for="author">Author:</label>
+        <input type="text" id="author" required />
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" required />
+        <article class="radio-wrapper">
+          <input type="radio" id="read" name="read-status" value="read" checked required />
+          <label for="read">Read</label>
+          <input type="radio" id="not-read" name="read-status" value="not-read" required />
+          <label for="read">Not read</label>
+        </article>
+        <article class="buttons-wrapper">
+          <button class="form-cancel">Cancel</button>
+          <button class="form-clear">Clear</button>
+          <button type="submit" class="submit">Submit</button>
+        </article>
+      </form>
+      <section class="library" style="display: none"></section>
     </main>
     <script src="script.js"></script>
   </body>

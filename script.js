@@ -34,4 +34,5 @@ function displayBooks() {
 
 addBookToLibrary('The Hobbit', 'J.R.R Tolkien', 295, 'not read yet');
 addBookToLibrary('Mistborn: The Final Empire', 'Brandon Sanderson', 647, 'not read yet');
+addBookToLibrary('The Maze Runner', 'James Dashner', 375, 'read');
 displayBooks();
